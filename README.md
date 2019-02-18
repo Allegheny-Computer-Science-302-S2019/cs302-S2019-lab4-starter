@@ -20,15 +20,15 @@ PROBLEMS?
 
 -->
 
-# cs302-S2019-lab4-starter
+# cs302-S2019-lab4-solution
 
 Designed for use with [GitHub Classroom](https://classroom.github.com/), this
-repository contains the starter for Laboratory 4 in Computer Science 302. Since
-the Travis builds for this repository will initially fail (as evidenced by a
-red &#x2717; appearing in the commit logs instead of a green &#x2714;), the
-programmer is responsible for completing all of the steps needed to satisfy the
-requirements for the assignment, thus causing a &#x2714; to instead appear in
-the commit logs.
+repository contains the starter for Laboratory 4 in Computer Science 302.
+Since the Travis builds for this repository will initially fail (as evidenced
+by a red &#x2717; appearing in the commit logs instead of a green &#x2714;),
+the programmer is responsible for completing all of the steps needed to satisfy
+the requirements for the assignment, thus causing a &#x2714; to instead appear
+in the commit logs.
 
 ## Introduction
 
@@ -61,7 +61,7 @@ linting tool](https://github.com/markdownlint/markdownlint) and the writing
 standards set by the [Proselint tool](http://proselint.com/).
 
 The source code in the `index.html` file must also pass additional tests set by
-the [GatorGrader tool](https://github.com/gkapfham/gatorgrader). GatorGrader
+the [GatorGrader tool](https://github.com/GatorEducator/gatorgrader). GatorGrader
 will check to ensure that your main file contains the required header and that,
 for instance, it contains the correct number of `time` tags. GatorGrader will
 also check elements of your CSS and ensure that you made the required number
@@ -107,25 +107,16 @@ about any of these reading assignments.
 ## Commands
 
 To get started in using the GatorGrader tool, you can change into the directory
-for this assignment and type the command `./gatorgrader.sh --start` in your
-terminal. Now, if you want to perform all of the checks that will
-automatically evaluate your assignment, you can type the command
-`./gatorgrader.sh --check`. Please note that the GatorGrader tool also runs
-the `htmlhint src/www/index.html` command to "lint" your HTML file.
-
+for this assignment and type the command `gradle grade` in your terminal.
 Running this command will produce a lot of output that you should carefully
-inspect. If the last line of the output indicates that GatorGrader judges that
-there are no mistakes in the assignment, then this means that your source code
-and writing are passing all of the automated checks. However, if the last line
-of the output indicates that there are mistakes, then you will need to
-understand what they are and then try to fix them.
-
-If the course instructor publishes a new version of GatorGrader and asks you to
-access it, then you need change into the tool's directory by typing `cd
-gatorgrader`. Then, you can type the command `git pull` to download the new
-source code for the GatorGrader tool. If this command completes successfully,
-then you can return to the main directory for this laboratory assignment by
-typing `cd ..` and then continuing your work.
+inspect. If the output indicates that GatorGrader judges that there are no
+mistakes in the assignment, then this means that your source code and writing
+are passing all of the automated baseline checks. However, if the output
+indicates that there are mistakes, then you will need to understand what they
+are and then try to fix them. Finally, remember that you must run the `gradle
+grade` command from the main (or "home base") directory for this assignment
+where the `build.gradle` file is located. Then, you can type the command in
+the terminal and study the output.
 
 ## Checking
 
@@ -133,23 +124,37 @@ In addition to making the checks that were previously mentioned in the
 introduction to this document, your final submission must meet the following
 requirements.
 
-- The `index.html` file contains the fragment `<title>Share Your Travels</title>`.
-- The `index.html` file contains the fragment `<h1>Share Your Travels</h1>`.
-- The `index.html` file contains the fragment `<h3>Photograph Reviews</h3>`.
-- The `index.html` file contains the five of the `<b>` fragment to make bold fonts.
-- The `index.html` file contains the five of the `<time>` fragment to display times.
-- The `index.html` file contains the five of the `em em-` fragment to load an emoji.
-- The `index.html` file contains the five of the `<blockquote>` fragment to format
-  the comments.
-- The `index.html` file loads the web fonts from `fonts.googleapis.com`.
-- The `site.css` file specifies `font-family: "Merriweather", serif;` for the
-  header font.
-- The `site.css` file specifies `font-family: "Montserrat", sans;` for the
-  body font.
-- The reflection contains four detailed responses to each of the stated
-  questions.
-- The GitHub repository must contain at minimum five new commits with
-  descriptive messages.
+- src/www/travels.html:
+  - Passes the checks performed by the HTML linting tool, reporting `no errors found`
+  - Contains exactly one use of a `title` tag with `Share Your Travels` as content
+  - Contains exactly one use of an `h1` tag with `Share Your Travels` as content
+  - Contains exactly one use of an `h3` tag with `Photograph Reviews` as content
+  - Contains exactly one use of an `h3` tag with `Travel Tips` as content
+  - Contains at least fifteen uses of an `p` tag with the appropriate content
+  - Contains at least five uses of a `time` tag with the appropriate content
+  - Contains at least five uses of a `blockquote` tag with the appropriate content
+  - Contains at least three uses of a `a href` tag with the appropriate link content
+  - Contains exactly one reference to `site.css` in the header of the web site
+  - Contains exactly one reference to `emoji.css` in the header of the web site
+  - Contains exactly one use of the `ol` and `li` tags
+  - Contains exactly one use of the `html` and `head` and `body` tags
+  - Contains exactly zero references of the marker used to designate unfinished work
+
+- src/www/css/site.css:
+  - Contains exactly two references to `font-family` to style the site's fonts
+  - Contains exactly one reference to appropriate rules for styling the border of a `blockquote`
+
+- images/travels_submission.png:
+  - The file exists in the correct directory with a screenshot of your final web site
+
+- writing/reflection.md:
+  - Passes the checks performed by the Markdown linting tool
+  - Passes the checks performed by the Prose linting tool
+  - Contains exactly five contiguous paragraphs of formatted text
+  - The contiguous paragraphs contain at least 100 words
+
+- GitHub repository:
+  - Contains five commits beyond the repository's starting number of commits
 
 The following image gives you an example of the formatting and content that your
 final web site should exhibit. Specifically, your web site should display the
@@ -159,7 +164,7 @@ applies all of the styles that you see in the image at the following link.
 Please note that you should open this image in a new browser tab so that you can
 closely inspect it for the required features.
 
-[Travel Web Site Example](images/travels.jpg)
+[Travel Web Site Example](images/travels_example.jpg)
 
 ## Updates
 
@@ -168,7 +173,7 @@ you would like to receive these updates, then you can type this command in the
 main directory for this assignment:
 
 ```
-./gatorgrader.sh --update git@github.com:Allegheny-Computer-Science-302-S2019/cs302-S2019-lab4-starter.git
+git remote add download git@github.com:Allegheny-Computer-Science-302-S2019/cs302-S2019-lab4-starter.git
 ```
 
 You should only need to type this command once; typing the command additional
@@ -177,7 +182,7 @@ your repository. Now, you are ready to download the updates provided by the
 course instructor by typing:
 
 ```
-./gatorgrader.sh --download
+git pull download master
 ```
 
 This second command can be run whenever the course instructor needs to provide
@@ -200,9 +205,11 @@ access the private repositories that you created on GitHub.
 The GatorGrader software that supports the checking of this assignment was
 developed for the following software and versions:
 
-- mdl 0.4.0
-- proselint 0.7.0
-- python 3.5.2
+- Gradle 4.6
+- Java 1.8.0
+- MDL 0.4.0
+- Proselint 0.8.0
+- Python 3.6
 
 ## Problems
 
@@ -211,7 +218,7 @@ you can go to the [Computer Science 302 Lab 5
 Starter](https://github.com/Allegheny-Computer-Science-302-S2019/cs302-S2019-lab4-starter)
 repository and create an issue by clicking the "Issues" tab and then clicking
 the green "New Issue" button. If you have found a problem with the [GatorGrader
-tool](https://github.com/gkapfham/gatorgrader) and the way that it checks you
+tool](https://github.com/GatorEducator/gatorgrader) and the way that it checks you
 assignment, then you can follow the aforementioned steps to create an issue in
 its repository. To ensure that your issue is properly resolved, please provide
 as many details as is possible about the problem that you experienced. If you
