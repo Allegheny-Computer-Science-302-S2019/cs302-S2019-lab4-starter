@@ -40,7 +40,7 @@ src/www/css:
         --fragment "font-family" --count 2
         --fragment "0 1pt 1pt 0" --count 1
 # --> check the number of commits beyond a threshold
---commits 10
+--commits 17
 # --> check that the linter executes and produces 0 lines of output
 --command "htmlhint src/www/index.html" --executes
 --command "htmlhint src/www/index.html" --count 1 --exact
